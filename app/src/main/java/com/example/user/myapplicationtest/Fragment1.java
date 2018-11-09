@@ -23,6 +23,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -77,10 +78,13 @@ public class Fragment1 extends android.support.v4.app.Fragment {
 
         if(list.size() > 0){
 
-            titleAll.setText(list.get(0).getCard_title());
+            Random rand = new Random();
+            int num = rand.nextInt(list.size());
+
+            titleAll.setText(list.get(num).getCard_title());
             titleAllKana = Common.convertHiragana2Katakana(titleAll.getText().toString());
-            if(list.get(0).getCard_image() != null){
-                Bitmap image = BitmapFactory.decodeByteArray(list.get(0).getCard_image(),0,list.get(0).getCard_image().length);
+            if(list.get(num).getCard_image() != null){
+                Bitmap image = BitmapFactory.decodeByteArray(list.get(num).getCard_image(),0,list.get(num).getCard_image().length);
                 imageView.setImageBitmap(image);
             }
 
