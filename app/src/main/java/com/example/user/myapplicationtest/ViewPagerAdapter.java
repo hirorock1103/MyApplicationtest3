@@ -1,17 +1,29 @@
 package com.example.user.myapplicationtest;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-    private static final String[] HIRAGANA = {"あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ"};
+    private String[] HIRAGANA;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm, Context context, int lang) {
         super(fm);
+        CardContentsManager manager = new CardContentsManager(context);
+        if(lang == 200){
+            HIRAGANA = manager.getHiranagqaDataExistsOnly(Common.ALPHABET);
+        }else{
+            HIRAGANA = manager.getHiranagqaDataExistsOnly(Common.HIRANAGQA);
+        }
+
     }
 
     @Override
@@ -30,4 +42,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return HIRAGANA.length;
     }
+
 }

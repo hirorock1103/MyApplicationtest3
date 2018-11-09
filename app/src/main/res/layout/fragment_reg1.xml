@@ -12,7 +12,9 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_width="350dp"
-        android:layout_height="480dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         card_view:layout_constraintTop_toTopOf="parent"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintRight_toRightOf="parent"
@@ -23,7 +25,6 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <TextView
                 android:id="@+id/f_title"
@@ -37,46 +38,52 @@
                 card_view:layout_constraintTop_toTopOf="parent"
                 card_view:layout_constraintLeft_toLeftOf="parent"/>
 
-            <TextView
-                android:id="@+id/f_title_all"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edit_f_title_all"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="48dp"
-                android:text="test"
-                android:textSize="38sp"
+                android:hint="タイトル"
+                android:textSize="25sp"
                 card_view:layout_constraintLeft_toRightOf="@+id/f_title"
                 card_view:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:id="@+id/card_image"
+                android:id="@+id/image"
                 android:scaleType="centerCrop"
                 card_view:layout_constraintEnd_toEndOf="parent"
                 card_view:layout_constraintLeft_toLeftOf="parent"
                 card_view:layout_constraintRight_toRightOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/f_title" />
-
-
+            
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/speech_recg"
-                android:text="Voice"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintLeft_toLeftOf="parent"
+                android:text="画像選択"
+                android:id="@+id/getImageButton"
+                card_view:layout_constraintTop_toBottomOf="@+id/f_title"
                 />
 
+
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Voice"-->
+                <!--card_view:layout_constraintBottom_toBottomOf="parent"-->
+                <!--card_view:layout_constraintLeft_toLeftOf="parent"-->
+                <!--/>-->
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/success_btn"
-                android:text="正解"
+                android:text="登録"
+                android:id="@+id/register"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintRight_toRightOf="parent"
                 />
-
 
         </android.support.constraint.ConstraintLayout>
 
