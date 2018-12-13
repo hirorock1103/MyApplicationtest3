@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameActicvity" />
-        <activity android:name=".CardTourokuActivity"></activity>
+        <activity android:name=".CardTourokuActivity" />
+        <activity android:name=".CardEditActivity"></activity>
     </application>
 
 </manifest>

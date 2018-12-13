@@ -11,19 +11,46 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button bt_switch_ja;
+    private Button bt_switch_en;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         int lang = sharedPreferences.getInt("LANG", 0);
         if(lang == 0){
+            //何もセットされていない=初期値のケース
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("LANG", 100);//100 japanese 200 english
             editor.commit();
         }
+
+        bt_switch_ja = findViewById(R.id.bt_switch_ja);
+        bt_switch_ja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //何もセットされていない=初期値のケース
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("LANG", 100);//100 japanese 200 english
+                editor.commit();
+            }
+        });
+
+        bt_switch_en = findViewById(R.id.bt_switch_en);
+        bt_switch_en.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //何もセットされていない=初期値のケース
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("LANG", 200);//100 japanese 200 english
+                editor.commit();
+            }
+        });
 
 
         Button bt = findViewById(R.id.bt);
@@ -41,31 +68,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, CardTourokuActivity.class);
                 startActivity(intent);
-
             }
         });
 
-        Button bt_switch = findViewById(R.id.bt_switch);
-        bt_switch.setOnClickListener(new View.OnClickListener() {
+        Button bt_edit = findViewById(R.id.bt_edit);
+        bt_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-                int lang = sharedPreferences.getInt("LANG", 0);
-                if(lang == 200){
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("LANG", 100);//100 japanese 200 english
-                    editor.commit();
-                }else{
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putInt("LANG", 200);//100 japanese 200 english
-                    editor.commit();
-                }
-
-                Toast.makeText(MainActivity.this, "lang : " + lang, Toast.LENGTH_SHORT).show();
-
-
+                Intent intent = new Intent(MainActivity.this, CardEditActivity.class);
+                startActivity(intent);
             }
         });
+
+
     }
 }

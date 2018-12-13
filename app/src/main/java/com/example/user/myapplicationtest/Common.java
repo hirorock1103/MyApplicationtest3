@@ -47,8 +47,7 @@ public class Common {
             nextCal.add(Calendar.DAY_OF_MONTH, 1);
             nextDate = nextCal.getTime();
             formatedDate = nextDate.toString();
-
-
+            
         } catch (ParseException e) {
             e.printStackTrace();
             Log.i("INFO", e.getMessage());

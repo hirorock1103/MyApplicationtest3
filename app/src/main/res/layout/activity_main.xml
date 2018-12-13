@@ -8,56 +8,54 @@
 
 
     <android.support.v7.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="#888"
         android:gravity="center"
         android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dp"
-        android:numColumns="2"
+        android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:verticalSpacing="1dp"
+        app:columnCount="2">
 
         <Button
             android:id="@+id/bt"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            app:layout_columnWeight="1"
             android:text="start!"
-         />
-
-        <!--<Button-->
-            <!--android:id="@+id/bt_setting"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="100dp"-->
-            <!--app:layout_columnWeight="1"-->
-            <!--android:text="設定"-->
-            <!--/>-->
-
-        <Button
-            android:id="@+id/bt_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            app:layout_columnWeight="1"
-            android:text="言語切替"
-            />
+            app:layout_columnWeight="1" />
 
 
         <Button
             android:id="@+id/bt_touroku"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            app:layout_columnWeight="1"
             android:text="カード登録"
-            />
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/bt_switch_ja"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="日本語"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/bt_switch_en"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="英語"
+            app:layout_columnWeight="1" />
+
+        <Button
+            android:id="@+id/bt_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="カード編集"
+            app:layout_columnWeight="1" />
+
+
 
     </android.support.v7.widget.GridLayout>
-
-
-
-
-
-
-
-
 
 </android.support.constraint.ConstraintLayout>
