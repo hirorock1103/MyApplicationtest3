@@ -2,6 +2,7 @@ package com.example.user.myapplicationtest;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class GameActicvity extends AppCompatActivity implements Fragment1.Fragment1Listner {
 
     private ViewPager pager;
+    private TabLayout tabLayout;
     private FragmentPagerAdapter adapter;
     private int currentPage;
     private int total;
@@ -38,9 +40,11 @@ public class GameActicvity extends AppCompatActivity implements Fragment1.Fragme
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         langSetting = sharedPreferences.getInt("LANG", 0);
 
+        tabLayout = findViewById(R.id.tabLayout);
         pager =findViewById(R.id.view_pager);
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), this, langSetting);
         pager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(pager);
         total = adapter.getCount();
         currentPage = 1;
         setNavigation(currentPage, total);
