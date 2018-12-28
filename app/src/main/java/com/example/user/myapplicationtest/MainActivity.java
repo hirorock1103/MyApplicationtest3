@@ -81,5 +81,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        Button bt_edit_2 = findViewById(R.id.bt_edit_2);
+        bt_edit_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CardEditActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }

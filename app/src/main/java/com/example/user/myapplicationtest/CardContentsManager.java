@@ -135,6 +135,47 @@ public class CardContentsManager extends MyDbHelper {
 
     }
 
+    public void delete(int id){
+
+        String query = "DELETE FROM " + TABLE_CARDCONTENTS + " WHERE " + CARDCONTENTS_COLUMN_ID + " = " + id;
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
+    }
+
+
+    public List<CardContents> getCardList(){
+
+        String query = "SELECT " +CARDCONTENTS_COLUMN_ID + ", " +CARDCONTENTS_COLUMN_TITLE+ " FROM " + TABLE_CARDCONTENTS + " ORDER BY " + CARDCONTENTS_COLUMN_TITLE + " ASC ";
+
+        List<CardContents> list = new ArrayList<>();
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        while(!c.isAfterLast()){
+
+            CardContents contents = new CardContents();
+
+            contents.setCard_id(c.getInt(c.getColumnIndex(CARDCONTENTS_COLUMN_ID)));
+            contents.setCard_title(c.getString(c.getColumnIndex(CARDCONTENTS_COLUMN_TITLE)));
+            //contents.setCard_image(c.getBlob(c.getColumnIndex(CARDCONTENTS_COLUMN_IMAGE)));
+
+            list.add(contents);
+
+            c.moveToNext();
+
+        }
+
+
+        return list;
+
+
+    }
+
     /**
      *
      * @param hiragana
@@ -148,9 +189,7 @@ public class CardContentsManager extends MyDbHelper {
 
         String query = " SELECT * FROM " + TABLE_CARDCONTENTS +
                 " WHERE "+ CARDCONTENTS_COLUMN_TITLE + " like '" + hiragana + "%'";
-//        if(returnCount > 0 ){
-//            query += " LIMIT " + returnCount;
-//        }
+
 
         Cursor c = db.rawQuery(query, null);
 
@@ -163,8 +202,6 @@ public class CardContentsManager extends MyDbHelper {
             contents.setCard_id(c.getInt(c.getColumnIndex(CARDCONTENTS_COLUMN_ID)));
             contents.setCard_title(c.getString(c.getColumnIndex(CARDCONTENTS_COLUMN_TITLE)));
             contents.setCard_image(c.getBlob(c.getColumnIndex(CARDCONTENTS_COLUMN_IMAGE)));
-//            contents.setCard_index(c.getInt(c.getColumnIndex(CARDCONTENTS_COLUMN_INDEX)));
-//            contents.setCreatedate(c.getString(c.getColumnIndex(CARDCONTENTS_COLUMN_CREATEDATE)));
 
             list.add(contents);
 

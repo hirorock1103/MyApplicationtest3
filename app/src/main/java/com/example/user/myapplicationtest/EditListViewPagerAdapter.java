@@ -26,7 +26,7 @@ public class EditListViewPagerAdapter extends FragmentPagerAdapter {
 
         Fragment fragment = null;
         Bundle bundle;
-        fragment = new Fragment1();
+        fragment = new Fragment3();
         bundle = new Bundle();
         bundle.putString("key",LANG[position]);
         fragment.setArguments(bundle);

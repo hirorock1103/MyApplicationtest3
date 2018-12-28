@@ -47,6 +47,8 @@ public class Fragment1 extends android.support.v4.app.Fragment {
         Bundle bundle = getArguments();
         String val = bundle.get("key").toString();
 
+        Log.i("INFO", "★" + val);
+
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         langSetting = sharedPreferences.getInt("LANG", 0);
 
@@ -75,6 +77,9 @@ public class Fragment1 extends android.support.v4.app.Fragment {
 
         CardContentsManager manager = new CardContentsManager(getContext());
         List<CardContents> list = manager.getCardContentsByFirstLetter(val);
+
+
+
 
         if(list.size() > 0){
 
