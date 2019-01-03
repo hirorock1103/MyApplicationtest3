@@ -146,7 +146,11 @@ public class CardContentsManager extends MyDbHelper {
 
     public List<CardContents> getCardList(){
 
-        String query = "SELECT " +CARDCONTENTS_COLUMN_ID + ", " +CARDCONTENTS_COLUMN_TITLE+ " FROM " + TABLE_CARDCONTENTS + " ORDER BY " + CARDCONTENTS_COLUMN_TITLE + " ASC ";
+        String query = "SELECT "
+                +CARDCONTENTS_COLUMN_ID + ", "
+                +CARDCONTENTS_COLUMN_TITLE + ", "
+                +CARDCONTENTS_COLUMN_IMAGE
+                + " FROM " + TABLE_CARDCONTENTS + " ORDER BY " + CARDCONTENTS_COLUMN_TITLE + " ASC ";
 
         List<CardContents> list = new ArrayList<>();
 
@@ -162,7 +166,7 @@ public class CardContentsManager extends MyDbHelper {
 
             contents.setCard_id(c.getInt(c.getColumnIndex(CARDCONTENTS_COLUMN_ID)));
             contents.setCard_title(c.getString(c.getColumnIndex(CARDCONTENTS_COLUMN_TITLE)));
-            //contents.setCard_image(c.getBlob(c.getColumnIndex(CARDCONTENTS_COLUMN_IMAGE)));
+            contents.setCard_image(c.getBlob(c.getColumnIndex(CARDCONTENTS_COLUMN_IMAGE)));
 
             list.add(contents);
 
